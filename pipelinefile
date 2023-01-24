@@ -23,8 +23,7 @@ stage ('Terraform version') {
   stage ('Terraform init') { 
   steps {
    sh '''
-   cd terraform-test/
-   terraform init
+    terraform init
    ''' 
    }
    }
@@ -32,7 +31,6 @@ stage ('Terraform version') {
   stage ('Terraform plan') { 
   steps {
    sh '''
-   cd terraform-test/
    terraform plan -out=tfplan.out
    terraform show -json tfplan.out
    ''' 
@@ -42,7 +40,6 @@ stage ('Terraform version') {
  stage ('Terraform apply') { 
   steps {
    sh '''
-   cd terraform-test/
    terraform apply --auto-approve
    ''' 
    }
